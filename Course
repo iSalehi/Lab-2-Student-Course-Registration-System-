@@ -1,1 +1,55 @@
+class CourseInfo {
+    private String courseName;
+    private int maxSeats;
+    private java.util.ArrayList<String> registeredStudents;
 
+    public CourseInfo(String courseName, int maxSeats) {
+        this.courseName = courseName;
+        this.maxSeats = maxSeats;
+        this.registeredStudents = new java.util.ArrayList<>();
+    }
+
+    public String getCourseName() {
+        return courseName;
+    }
+
+    public boolean registerStudent(String studentName) {
+        if (registeredStudents.contains(studentName)) {
+            System.out.println(studentName + " is already registered in " + courseName + ".");
+            return false;
+        }
+
+        if (registeredStudents.size() >= maxSeats) {
+            System.out.println("Sorry, no seats are available in " + courseName + ".");
+            return false;
+        }
+
+        registeredStudents.add(studentName);
+        System.out.println(studentName + " has been registered in " + courseName + ".");
+        return true;
+    }
+
+    public boolean dropStudent(String studentName) {
+        if (registeredStudents.contains(studentName)) {
+            registeredStudents.remove(studentName);
+            System.out.println(studentName + " has been dropped from " + courseName + ".");
+            return true;
+        } else {
+            System.out.println(studentName + " is not registered in " + courseName + ".");
+            return false;
+        }
+    }
+
+    public void displayCourseDetails() {
+        System.out.println("\nCourse Name: " + courseName);
+        System.out.println("Maximum Seats: " + maxSeats);
+        System.out.println("Available Seats: " + (maxSeats - registeredStudents.size()));
+
+        if (registeredStudents.isEmpty()) {
+            System.out.println("Registered Students: None");
+        } else {
+            System.out.println("Registered Students: " + registeredStudents);
+        }
+        System.out.println("-----------------------------------");
+    }
+}
