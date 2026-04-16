@@ -9,6 +9,7 @@ class CourseInfo {
         this.registeredStudents = new java.util.ArrayList<>();
     }
 
+
     public String getCourseName() {
         return courseName;
     }
