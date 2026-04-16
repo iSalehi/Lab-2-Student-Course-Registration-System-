@@ -6,6 +6,7 @@ class CourseInfo {
     private int maxSeats;
     private ArrayList<String> registeredStudents;
 
+
     public CourseInfo(String courseName, int maxSeats) {
         this.courseName = courseName;
         this.maxSeats = maxSeats;
